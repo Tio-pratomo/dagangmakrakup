@@ -68,4 +68,8 @@ main.addEventListener('click', function (event) {
             maximumFractionDigits: 0,
         })}`;
     }
+
+    if (event.target.id === 'reset') {
+        main.children[1].reset();
+    }
 });

@@ -11,6 +11,10 @@ main h1 {
     margin: 2vh 0 0;
 }
 
+.fade {
+    opacity: 0;
+}
+
 table.input-user {
     margin: 5vh auto;
     width: 50%;

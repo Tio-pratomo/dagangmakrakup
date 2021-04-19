@@ -1,5 +1,6 @@
 // seleksi item yang ingin di pilih
 const main = document.querySelector('main');
+const description = document.getElementsByClassName('description')[0];
 
 // Kemudian tambahkan event listener untuk perhitungan harga
 main.addEventListener('click', function (event) {
@@ -27,6 +28,8 @@ main.addEventListener('click', function (event) {
         const totalItemTahu =
             main.children[3].children[0].children[2].children[2];
         const totalPrice = document.getElementsByClassName('total')[0];
+
+        description.classList.remove('fade');
 
         if (lontong.value === '' && risol.value === '' && tahu.value === '') {
             lontong.value = 0;
@@ -87,5 +90,9 @@ main.addEventListener('click', function (event) {
             currency: 'IDR',
             maximumFractionDigits: 0,
         })}`;
+    }
+
+    if (event.target.id === 'reset') {
+        description.classList.add('fade');
     }
 });

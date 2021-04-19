@@ -3,8 +3,8 @@ const main = document.querySelector('main');
 
 // Kemudian tambahkan event listener untuk perhitungan harga
 main.addEventListener('click', function (event) {
-    event.preventDefault();
     if (event.target.id === 'count') {
+        event.preventDefault();
         const lontong =
             main.children[1].children[0].children[0].children[0].children[1]
                 .children[0];
@@ -67,9 +67,5 @@ main.addEventListener('click', function (event) {
             currency: 'IDR',
             maximumFractionDigits: 0,
         })}`;
-    }
-
-    if (event.target.id === 'reset') {
-        main.children[1].reset();
     }
 });

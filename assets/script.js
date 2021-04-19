@@ -49,8 +49,8 @@ main.addEventListener('click', function (event) {
             tahu.value = 0;
         }
 
-        lontongCalculation.innerHTML = `${lontong.value} x Rp 1.500`;
-        totalItemLontong.innerHTML = ` = ${(
+        lontongCalculation.innerText = `${lontong.value} x Rp 1.500`;
+        totalItemLontong.innerText = ` = ${(
             lontong.value * 1500
         ).toLocaleString('id-ID', {
             style: 'currency',
@@ -58,8 +58,8 @@ main.addEventListener('click', function (event) {
             maximumFractionDigits: 0,
         })}`;
 
-        risolCalculation.innerHTML = `${risol.value} x Rp 2.000`;
-        totalItemRisol.innerHTML = ` = ${(risol.value * 2000).toLocaleString(
+        risolCalculation.innerText = `${risol.value} x Rp 2.000`;
+        totalItemRisol.innerText = ` = ${(risol.value * 2000).toLocaleString(
             'id-ID',
             {
                 style: 'currency',
@@ -68,8 +68,8 @@ main.addEventListener('click', function (event) {
             }
         )}`;
 
-        tahuCalculation.innerHTML = `${tahu.value} x Rp 1.000`;
-        totalItemTahu.innerHTML = ` = ${(tahu.value * 1000).toLocaleString(
+        tahuCalculation.innerText = `${tahu.value} x Rp 1.000`;
+        totalItemTahu.innerText = ` = ${(tahu.value * 1000).toLocaleString(
             'id-ID',
             {
                 style: 'currency',
@@ -78,7 +78,7 @@ main.addEventListener('click', function (event) {
             }
         )}`;
 
-        totalPrice.innerHTML = `${(
+        totalPrice.innerText = `${(
             parseInt(lontong.value * 1500) +
             parseInt(risol.value * 2000) +
             parseInt(tahu.value * 1000)

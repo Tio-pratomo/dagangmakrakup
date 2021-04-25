@@ -8,15 +8,9 @@ form.addEventListener('click', function (event) {
         event.preventDefault();
         description.classList.remove('fade');
         const inputUser = {
-            lontong:
-                form.children[0].children[0].children[0].children[1]
-                    .children[0],
-            risol:
-                form.children[0].children[0].children[1].children[1]
-                    .children[0],
-            gorengan:
-                form.children[0].children[0].children[2].children[1]
-                    .children[0],
+            lontong: form.children[0].children[1].children[0],
+            risol: form.children[1].children[1].children[0],
+            gorengan: form.children[2].children[1].children[0],
         };
 
         const pricingDetails = {

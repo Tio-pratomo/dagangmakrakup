@@ -16,33 +16,26 @@
 <body>
     <main>
         <h1 class="text-center">Perhitungan Harga Dagangan Mak Iyo</h1>
-        <form action="" method="POST">
-            <table class="input-user table">
-                <tr>
-                    <td>
-                        <label for="lontong">Lontong</label>
-                    </td>
-                    <td>
-                        <input type="number" name="lontong" id="lontong" min="0">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="risol">Risol</label>
-                    </td>
-                    <td>
-                        <input type="number" name="risol" id="risol" min="0">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="gorengan">Gorengan (tahu / bakwan / tempe)</label>
-                    </td>
-                    <td>
-                        <input type="number" name="gorengan" id="gorengan" min="0">
-                    </td>
-                </tr>
-            </table>
+        <form action="" class="mt-5">
+            <div class="form-group row justify-content-center">
+                <label for="lontong" class="col-lg-2 col-form-label text-center">Lontong</label>
+                <div class="col-lg-5">
+                    <input type="number" name="lontong" id="lontong" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <label for="risol" class="col-lg-2 col-form-label text-center">Risol</label>
+                <div class="col-lg-5">
+                    <input type="number" name="risol" id="risol" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <label for="gorengan"
+                    class="col-lg-2 col-form-label text-center">Gorengan<br>(tahu/bakwan/tempe)</label>
+                <div class="col-lg-5">
+                    <input type="number" name="gorengan" id="gorengan" class="form-control">
+                </div>
+            </div>
 
             <button id="count" class="btn btn-info text-white mb-2" type="submit">Hitung</button>
             <button id="reset" type="reset" class="btn btn-danger text-alert">Reset</button>

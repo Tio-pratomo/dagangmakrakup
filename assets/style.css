@@ -29,10 +29,6 @@ table.description {
     margin: 0 auto;
 }
 
-span {
-    margin: 0 0 0 5vmax;
-}
-
 @media screen and (max-width: 600px) {
     main h1 {
         font-size: 24px;

@@ -84,7 +84,7 @@ form.addEventListener('click', function (event) {
             maximumFractionDigits: 0,
         })}`;
 
-        pricingDetails.totalPrice.innerHTML = `${(
+        pricingDetails.totalPrice.innerHTML = `\t${(
             parseInt(inputUser.lontong.value * 1500) +
             parseInt(inputUser.risol.value * 2000) +
             parseInt(inputUser.gorengan.value * 1000)

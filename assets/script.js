@@ -58,7 +58,7 @@ form.addEventListener('click', function (event) {
         }
 
         pricingDetails.lontongDetail.innerHTML = `${inputUser.lontong.value} x Rp 1.500`;
-        pricingDetails.lontongTotal.innerHTML = `= ${(
+        pricingDetails.lontongTotal.innerHTML = `  = ${(
             inputUser.lontong.value * 1500
         ).toLocaleString('id-ID', {
             style: 'currency',
@@ -67,7 +67,7 @@ form.addEventListener('click', function (event) {
         })}`;
 
         pricingDetails.risolDetail.innerHTML = `${inputUser.risol.value} x Rp 2.000`;
-        pricingDetails.risolTotal.innerHTML = `= ${(
+        pricingDetails.risolTotal.innerHTML = `  = ${(
             inputUser.risol.value * 2000
         ).toLocaleString('id-ID', {
             style: 'currency',
@@ -76,7 +76,7 @@ form.addEventListener('click', function (event) {
         })}`;
 
         pricingDetails.gorenganDetail.innerHTML = `${inputUser.gorengan.value} x Rp 1.000`;
-        pricingDetails.gorenganTotal.innerHTML = `= ${(
+        pricingDetails.gorenganTotal.innerHTML = `  = ${(
             inputUser.gorengan.value * 1000
         ).toLocaleString('id-ID', {
             style: 'currency',

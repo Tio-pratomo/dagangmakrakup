@@ -19,20 +19,20 @@
         <form action="" class="mt-5">
             <div class="form-group row justify-content-center">
                 <label for="lontong" class="col-lg-2 col-form-label text-center">Lontong</label>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <input type="number" name="lontong" id="lontong" class="form-control">
                 </div>
             </div>
             <div class="form-group row justify-content-center">
                 <label for="risol" class="col-lg-2 col-form-label text-center">Risol</label>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <input type="number" name="risol" id="risol" class="form-control">
                 </div>
             </div>
             <div class="form-group row justify-content-center">
                 <label for="gorengan"
                     class="col-lg-2 col-form-label text-center">Gorengan<br>(tahu/bakwan/tempe)</label>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <input type="number" name="gorengan" id="gorengan" class="form-control">
                 </div>
             </div>
@@ -42,27 +42,16 @@
         </form>
 
         <h2 class="text-center mt-5">Rincian Harga : </h2>
-        <table class="description table fade">
-            <tr>
-                <td>Lontong</td>
-                <td class="calculation-lontong"></td>
-                <td class="total-item-lontong"></td>
-            </tr>
-            <tr>
-                <td>Risol</td>
-                <td class="calculation-risol"></td>
-                <td class="total-item-risol"></td>
-            </tr>
-            <tr>
-                <td>Gorengan (tahu / bakwan / tempe)</td>
-                <td class="calculation-gorengan"></td>
-                <td class="total-item-gorengan"></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="font-weight-bold">Total Harga</td>
-                <td class="total font-weight-bold"></td>
-            </tr>
-        </table>
+        <div class="description fade text-left">
+            <p>Lontong : <span class="calculation-lontong"></span> <span class="total-item-lontong"></span></p>
+            <hr>
+            <p>Risol : <span class="calculation-risol"></span><span class="total-item-risol"></span></p>
+            <hr>
+            <p>Gorengan(tahu/bakwan/tempe) : <br><span class="calculation-gorengan"></span><span
+                    class="total-item-gorengan"></span></p>
+            <hr>
+            <p class="font-weight-bold">Total Harga : <span class="total"></span></p>
+        </div>
     </main>
 
     <script src="./assets/script.js" defer></script>

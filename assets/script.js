@@ -57,34 +57,37 @@ form.addEventListener('click', function (event) {
             inputUser.gorengan.value = 0;
         }
 
-        pricingDetails.lontongDetail.innerHTML = `${inputUser.lontong.value} x Rp 1.500`;
-        pricingDetails.lontongTotal.innerHTML = `  = ${(
+        pricingDetails.lontongDetail.innerHTML =
+            inputUser.lontong.value + ' x Rp 1.500';
+        pricingDetails.lontongTotal.innerHTML = (
             inputUser.lontong.value * 1500
         ).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
-        })}`;
+        });
 
-        pricingDetails.risolDetail.innerHTML = `${inputUser.risol.value} x Rp 2.000`;
-        pricingDetails.risolTotal.innerHTML = `  = ${(
+        pricingDetails.risolDetail.innerHTML =
+            inputUser.risol.value + ' x Rp 2.000';
+        pricingDetails.risolTotal.innerHTML = (
             inputUser.risol.value * 2000
         ).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
-        })}`;
+        });
 
-        pricingDetails.gorenganDetail.innerHTML = `${inputUser.gorengan.value} x Rp 1.000`;
-        pricingDetails.gorenganTotal.innerHTML = `  = ${(
+        pricingDetails.gorenganDetail.innerHTML =
+            inputUser.gorengan.value + ' x Rp 1.000';
+        pricingDetails.gorenganTotal.innerHTML = (
             inputUser.gorengan.value * 1000
         ).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
-        })}`;
+        });
 
-        pricingDetails.totalPrice.innerHTML = `\t${(
+        pricingDetails.totalPrice.innerHTML = (
             parseInt(inputUser.lontong.value * 1500) +
             parseInt(inputUser.risol.value * 2000) +
             parseInt(inputUser.gorengan.value * 1000)
@@ -92,7 +95,7 @@ form.addEventListener('click', function (event) {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
-        })}`;
+        });
     }
 
     if (event.target.id === 'reset') {

@@ -1,90 +1,99 @@
 // seleksi item yang ingin di pilih
-const main = document.querySelector('main');
+const form = document.getElementsByTagName('form')[0];
 const description = document.getElementsByClassName('description')[0];
 
 // Kemudian tambahkan event listener untuk perhitungan harga
-main.addEventListener('click', function (event) {
+form.addEventListener('click', function (event) {
     if (event.target.id === 'count') {
         event.preventDefault();
-        const lontong =
-            main.children[1].children[0].children[0].children[0].children[1]
-                .children[0];
-        const lontongCalculation =
-            main.children[3].children[0].children[0].children[1];
-        const totalItemLontong =
-            main.children[3].children[0].children[0].children[2];
-        const risol =
-            main.children[1].children[0].children[0].children[1].children[1]
-                .children[0];
-        const risolCalculation =
-            main.children[3].children[0].children[1].children[1];
-        const totalItemRisol =
-            main.children[3].children[0].children[1].children[2];
-        const tahu =
-            main.children[1].children[0].children[0].children[2].children[1]
-                .children[0];
-        const tahuCalculation =
-            main.children[3].children[0].children[2].children[1];
-        const totalItemTahu =
-            main.children[3].children[0].children[2].children[2];
-        const totalPrice = document.getElementsByClassName('total')[0];
-
         description.classList.remove('fade');
+        const inputUser = {
+            lontong:
+                form.children[0].children[0].children[0].children[1]
+                    .children[0],
+            risol:
+                form.children[0].children[0].children[1].children[1]
+                    .children[0],
+            gorengan:
+                form.children[0].children[0].children[2].children[1]
+                    .children[0],
+        };
 
-        if (lontong.value === '' && risol.value === '' && tahu.value === '') {
-            lontong.value = 0;
-            risol.value = 0;
-            tahu.value = 0;
-        } else if (lontong.value === '' && risol.value === '') {
-            lontong.value = 0;
-            risol.value = 0;
-        } else if (lontong.value === '' && tahu.value === '') {
-            lontong.value = 0;
-            tahu.value = 0;
-        } else if (risol.value === '' && tahu.value === '') {
-            risol.value = 0;
-            tahu.value = 0;
-        } else if (lontong.value === '') {
-            lontong.value = 0;
-        } else if (risol.value === '') {
-            risol.value = 0;
-        } else if (tahu.value === '') {
-            tahu.value = 0;
+        const pricingDetails = {
+            lontongDetail: description.querySelector('.calculation-lontong'),
+            lontongTotal: description.querySelector('.total-item-lontong'),
+            risolDetail: description.querySelector('.calculation-risol'),
+            risolTotal: description.querySelector('.total-item-risol'),
+            gorenganDetail: description.querySelector('.calculation-gorengan'),
+            gorenganTotal: description.querySelector('.total-item-gorengan'),
+            totalPrice: description.querySelector('.total'),
+        };
+
+        if (
+            inputUser.lontong.value < '0' &&
+            inputUser.risol.value < '0' &&
+            inputUser.gorengan.value < '0'
+        ) {
+            inputUser.lontong.value = 0;
+            inputUser.risol.value = 0;
+            inputUser.gorengan.value = 0;
+        } else if (
+            inputUser.lontong.value < '0' &&
+            inputUser.risol.value < '0'
+        ) {
+            inputUser.lontong.value = 0;
+            inputUser.risol.value = 0;
+        } else if (
+            inputUser.lontong.value < '0' &&
+            inputUser.gorengan.value < '0'
+        ) {
+            inputUser.lontong.value = 0;
+            inputUser.gorengan.value = 0;
+        } else if (
+            inputUser.risol.value < '0' &&
+            inputUser.gorengan.value < '0'
+        ) {
+            inputUser.risol.value = 0;
+            inputUser.gorengan.value = 0;
+        } else if (inputUser.lontong.value < '0') {
+            inputUser.lontong.value = 0;
+        } else if (inputUser.risol.value < '0') {
+            inputUser.risol.value = 0;
+        } else if (inputUser.gorengan.value < '0') {
+            inputUser.gorengan.value = 0;
         }
 
-        lontongCalculation.innerText = `${lontong.value} x Rp 1.500`;
-        totalItemLontong.innerText = ` = ${(
-            lontong.value * 1500
+        pricingDetails.lontongDetail.innerHTML = `${inputUser.lontong.value} x Rp 1.500`;
+        pricingDetails.lontongTotal.innerHTML = `= ${(
+            inputUser.lontong.value * 1500
         ).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
         })}`;
 
-        risolCalculation.innerText = `${risol.value} x Rp 2.000`;
-        totalItemRisol.innerText = ` = ${(risol.value * 2000).toLocaleString(
-            'id-ID',
-            {
-                style: 'currency',
-                currency: 'IDR',
-                maximumFractionDigits: 0,
-            }
-        )}`;
+        pricingDetails.risolDetail.innerHTML = `${inputUser.risol.value} x Rp 2.000`;
+        pricingDetails.risolTotal.innerHTML = `= ${(
+            inputUser.risol.value * 2000
+        ).toLocaleString('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            maximumFractionDigits: 0,
+        })}`;
 
-        tahuCalculation.innerText = `${tahu.value} x Rp 1.000`;
-        totalItemTahu.innerText = ` = ${(tahu.value * 1000).toLocaleString(
-            'id-ID',
-            {
-                style: 'currency',
-                currency: 'IDR',
-                maximumFractionDigits: 0,
-            }
-        )}`;
+        pricingDetails.gorenganDetail.innerHTML = `${inputUser.gorengan.value} x Rp 1.000`;
+        pricingDetails.gorenganTotal.innerHTML = `= ${(
+            inputUser.gorengan.value * 1000
+        ).toLocaleString('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            maximumFractionDigits: 0,
+        })}`;
 
-        totalPrice.innerText = `${(
-            parseInt(lontong.value * 1500) +
-            parseInt(risol.value * 2000) +
-            parseInt(tahu.value * 1000)
+        pricingDetails.totalPrice.innerHTML = `${(
+            parseInt(inputUser.lontong.value * 1500) +
+            parseInt(inputUser.risol.value * 2000) +
+            parseInt(inputUser.gorengan.value * 1000)
         ).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',

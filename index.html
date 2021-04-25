@@ -16,7 +16,7 @@
 <body>
     <main>
         <h1 class="text-center">Perhitungan Harga Dagangan Mak Iyo</h1>
-        <form action="">
+        <form action="" method="POST">
             <table class="input-user table">
                 <tr>
                     <td>
@@ -36,10 +36,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="tahu">Tahu</label>
+                        <label for="gorengan">Gorengan (tahu / bakwan / tempe)</label>
                     </td>
                     <td>
-                        <input type="number" name="tahu" id="tahu" min="0">
+                        <input type="number" name="gorengan" id="gorengan" min="0">
                     </td>
                 </tr>
             </table>
@@ -49,7 +49,7 @@
         </form>
 
         <h2 class="text-center mt-5">Rincian Harga : </h2>
-        <table class="description table">
+        <table class="description table fade">
             <tr>
                 <td>Lontong</td>
                 <td class="calculation-lontong"></td>
@@ -61,9 +61,9 @@
                 <td class="total-item-risol"></td>
             </tr>
             <tr>
-                <td>Tahu</td>
-                <td class="calculation-tahu"></td>
-                <td class="total-item-tahu"></td>
+                <td>Gorengan (tahu / bakwan / tempe)</td>
+                <td class="calculation-gorengan"></td>
+                <td class="total-item-gorengan"></td>
             </tr>
             <tr>
                 <td colspan="2" class="font-weight-bold">Total Harga</td>

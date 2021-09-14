@@ -14,56 +14,80 @@
 </head>
 
 <body>
-    <main>
-        <h1 class="text-center">Perhitungan Harga Dagangan Mak Iyo</h1>
-        <form action="" class="mt-5">
-            <div class="form-group row justify-content-center">
-                <label for="lontong" class="col-lg-2 col-form-label text-center">Lontong</label>
-                <div class="col-lg-4">
-                    <input type="number" name="lontong" id="lontong" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row justify-content-center">
-                <label for="risol" class="col-lg-2 col-form-label text-center">Risol</label>
-                <div class="col-lg-4">
-                    <input type="number" name="risol" id="risol" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row justify-content-center">
-                <label for="gorengan"
-                    class="col-lg-2 col-form-label text-center">Gorengan<br>(tahu/bakwan/tempe)</label>
-                <div class="col-lg-4">
-                    <input type="number" name="gorengan" id="gorengan" class="form-control">
-                </div>
-            </div>
 
-            <button id="count" class="btn btn-info text-white mb-2" type="submit">Hitung</button>
-            <button id="reset" type="reset" class="btn btn-danger text-alert">Reset</button>
-        </form>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8 mx-auto">
+                <h1 class="text-center">Perhitungan Harga Dagangan Mak Iyo</h1>
+                <form action="" class="mt-5">
+                    <div class="form-group row">
+                        <label for="lontong" class="col-sm-5 col-form-label text-left ml-md-3">Lontong :</label>
+                        <div class="col-sm-6">
+                            <input type="number" name="lontong" id="lontong" class="form-control">
+                        </div>
+                    </div>
 
-        <h2 class="text-center mt-5">Rincian Harga : </h2>
-        <table class="description table table-sm fade">
-            <tr>
-                <td>Lontong</td>
-                <td class="calculation-lontong"></td>
-                <td class="total-item-lontong"></td>
-            </tr>
-            <tr>
-                <td>Risol</td>
-                <td class="calculation-risol"></td>
-                <td class="total-item-risol"></td>
-            </tr>
-            <tr>
-                <td>Gorengan</td>
-                <td class="calculation-gorengan"></td>
-                <td class="total-item-gorengan"></td>
-            </tr>
-            <tr class="font-weight-bold">
-                <td colspan="2">Total</td>
-                <td class="total"></td>
-            </tr>
-        </table>
-    </main>
+                    <div class="form-group row">
+                        <label for="risol" class="col-sm-5 col-form-label text-left ml-md-3">Risol :</label>
+                        <div class="col-sm-6">
+                            <input type="number" name="risol" id="risol" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="gorengan" class="col-sm-5 col-form-label text-left ml-md-3">Gorengan
+                            (tahu/bakwan/tempe) :</label>
+                        <div class="col-sm-6">
+                            <input type="number" name="gorengan" id="gorengan" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <button id="count" class="btn ml-md-3 btn-block btn-info text-white mb-2 ml-0"
+                                type="submit">Hitung</button>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button id="reset" type="reset"
+                                class="btn ml-md-3 btn-block btn-danger text-alert">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mt-5">Rincian Harga : </h2>
+
+                <table class="description table table-striped table-responsive fade">
+                    <tr>
+                        <td claas="w-100">Lontong</td>
+                        <td class="calculation-lontong w-100 text-center"></td>
+                        <td class="total-item-lontong w-100"></td>
+                    </tr>
+                    <tr>
+                        <td>Risol</td>
+                        <td class="calculation-risol text-center"></td>
+                        <td class="total-item-risol"></td>
+                    </tr>
+                    <tr>
+                        <td>Gorengan</td>
+                        <td class="calculation-gorengan text-center"></td>
+                        <td class="total-item-gorengan"></td>
+                    </tr>
+                    <tr class="font-weight-bold">
+                        <td colspan="2">Total</td>
+                        <td class="total"></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
 
     <script src="./assets/script.js" defer></script>
 </body>

@@ -3,6 +3,27 @@ html {
     height: 100%;
 }
 
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.main-title {
+    font-weight: 600;
+}
+
+.title-price {
+    font-weight: 600;
+}
+
+.formulir label {
+    font-weight: 400;
+    font-size: 1.125rem;
+}
+
+table {
+    font-size: 1.125rem;
+}
+
 .fade {
     opacity: 0;
 }

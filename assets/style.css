@@ -3,43 +3,6 @@ html {
     height: 100%;
 }
 
-main {
-    padding: 2vmax;
-}
-
-main h1 {
-    margin: 2vh 0 0;
-}
-
 .fade {
     opacity: 0;
-}
-
-form {
-    text-align: center;
-}
-
-form button {
-    display: inline-block;
-    width: 50%;
-}
-
-table.description {
-    width: 50%;
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 600px) {
-    main h1 {
-        font-size: 24px;
-    }
-
-    main h2 {
-        font-size: 18px;
-    }
-
-    table.input-user,
-    table.description {
-        width: 100%;
-    }
 }

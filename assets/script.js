@@ -2,6 +2,9 @@
 const form = document.getElementsByTagName('form')[0];
 const description = document.getElementsByClassName('description')[0];
 
+const moneyBack = document.querySelector('.money-back');
+const inputMoneyBack = document.querySelector('input[name="customer"]');
+
 // Kemudian tambahkan event listener untuk perhitungan harga
 form.addEventListener('click', function (event) {
     if (event.target.id === 'count') {
@@ -78,11 +81,10 @@ form.addEventListener('click', function (event) {
 
     if (event.target.id === 'reset') {
         description.classList.add('fade');
+        moneyBack.innerText = '';
+        inputMoneyBack.value = '';
     }
 });
-
-const moneyBack = document.querySelector('.money-back');
-const inputMoneyBack = document.querySelector('input[name="customer"]');
 
 inputMoneyBack.addEventListener('input', function () {
     const inputUser = {

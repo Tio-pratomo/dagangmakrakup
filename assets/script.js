@@ -1,108 +1,84 @@
 // seleksi item yang ingin di pilih
 const form = document.getElementsByTagName('form')[0];
 const description = document.getElementsByClassName('description')[0];
+const reset = document.getElementById('reset');
 
 const moneyBack = document.querySelector('.money-back');
 const inputMoneyBack = document.querySelector('input[name="customer"]');
 
-// Kemudian tambahkan event listener untuk perhitungan harga
-form.addEventListener('click', function (event) {
-    if (event.target.id === 'count') {
-        event.preventDefault();
-        description.classList.remove('fade');
-        const inputUser = {
-            lontong: form.children[0].children[1].children[0],
-            risol: form.children[1].children[1].children[0],
-            gorengan: form.children[2].children[1].children[0],
-        };
+// FUNCTION - FUNCTION
+const displayItems = (name) => {
+    const calculateItem = document.querySelector(`.calculation-${name}`);
+    const totalPriceItem = document.querySelector(`.total-item-${name}`);
+    const inputItem = document.querySelector(`#${name}`);
+    let resultPrice = 0;
 
-        const pricingDetails = {
-            lontongDetail: description.querySelector('.calculation-lontong'),
-            lontongTotal: description.querySelector('.total-item-lontong'),
-            risolDetail: description.querySelector('.calculation-risol'),
-            risolTotal: description.querySelector('.total-item-risol'),
-            gorenganDetail: description.querySelector('.calculation-gorengan'),
-            gorenganTotal: description.querySelector('.total-item-gorengan'),
-            totalPrice: description.querySelector('.total'),
-        };
+    if (name === 'lontong') {
+        resultPrice = 1500;
 
-        if (inputUser.lontong.value < '0' && inputUser.risol.value < '0' && inputUser.gorengan.value < '0') {
-            inputUser.lontong.value = 0;
-            inputUser.risol.value = 0;
-            inputUser.gorengan.value = 0;
-        } else if (inputUser.lontong.value < '0' && inputUser.risol.value < '0') {
-            inputUser.lontong.value = 0;
-            inputUser.risol.value = 0;
-        } else if (inputUser.lontong.value < '0' && inputUser.gorengan.value < '0') {
-            inputUser.lontong.value = 0;
-            inputUser.gorengan.value = 0;
-        } else if (inputUser.risol.value < '0' && inputUser.gorengan.value < '0') {
-            inputUser.risol.value = 0;
-            inputUser.gorengan.value = 0;
-        } else if (inputUser.lontong.value < '0') {
-            inputUser.lontong.value = 0;
-        } else if (inputUser.risol.value < '0') {
-            inputUser.risol.value = 0;
-        } else if (inputUser.gorengan.value < '0') {
-            inputUser.gorengan.value = 0;
-        }
+        calculateItem.innerText = `${inputItem.value} x 1.500`;
+        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
+    } else if (name === 'risol') {
+        resultPrice = 2000;
 
-        pricingDetails.lontongDetail.innerHTML = inputUser.lontong.value + ' x Rp 1.500';
-        pricingDetails.lontongTotal.innerHTML = (inputUser.lontong.value * 1500).toLocaleString('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            maximumFractionDigits: 0,
-        });
+        calculateItem.innerText = `${inputItem.value} x 2.000`;
+        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
+    } else if (name === 'gorengan') {
+        resultPrice = 1000;
 
-        pricingDetails.risolDetail.innerHTML = inputUser.risol.value + ' x Rp 2.000';
-        pricingDetails.risolTotal.innerHTML = (inputUser.risol.value * 2000).toLocaleString('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            maximumFractionDigits: 0,
-        });
-
-        pricingDetails.gorenganDetail.innerHTML = inputUser.gorengan.value + ' x Rp 1.000';
-        pricingDetails.gorenganTotal.innerHTML = (inputUser.gorengan.value * 1000).toLocaleString('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            maximumFractionDigits: 0,
-        });
-
-        pricingDetails.totalPrice.innerHTML = (
-            parseInt(inputUser.lontong.value * 1500) +
-            parseInt(inputUser.risol.value * 2000) +
-            parseInt(inputUser.gorengan.value * 1000)
-        ).toLocaleString('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            maximumFractionDigits: 0,
-        });
+        calculateItem.innerText = `${inputItem.value} x 1.000`;
+        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     }
+};
 
-    if (event.target.id === 'reset') {
-        description.classList.add('fade');
-        moneyBack.innerText = '';
-        inputMoneyBack.value = '';
-    }
-});
-
-inputMoneyBack.addEventListener('input', function () {
-    const inputUser = {
-        lontong: form.children[0].children[1].children[0],
-        risol: form.children[1].children[1].children[0],
-        gorengan: form.children[2].children[1].children[0],
-    };
-
-    const totalPrice =
-        parseInt(inputUser.lontong.value * 1500) +
-        parseInt(inputUser.risol.value * 2000) +
-        parseInt(inputUser.gorengan.value * 1000);
-
-    const customerMoney = (inputMoneyBack.value - totalPrice).toLocaleString('id-ID', {
-        style: 'currency',
+const displayTotalPay = (elTotal, ...elements) => {
+    const total = elements.map((element) => element.innerText.slice(3) * 1000).reduce((acc, currVal) => acc + currVal);
+    const result = total.toLocaleString('id-ID', {
         currency: 'IDR',
+        style: 'currency',
         maximumFractionDigits: 0,
     });
 
-    moneyBack.innerText = customerMoney;
+    elTotal.innerText = `${result}`;
+};
+
+const sanitizeInputUser = () => {
+    const inputItems = form.querySelectorAll('input');
+
+    inputItems.forEach((input) => {
+        input.value === '' ? (input.value = 0) : null;
+    });
+};
+
+// Kemudian tambahkan event listener untuk perhitungan harga
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    description.classList.remove('fade');
+
+    sanitizeInputUser();
+
+    displayItems('lontong');
+    displayItems('risol');
+    displayItems('gorengan');
+
+    displayTotalPay(
+        document.querySelector('.total'),
+        document.querySelector('.total-item-lontong'),
+        document.querySelector('.total-item-risol'),
+        document.querySelector('.total-item-gorengan')
+    );
+});
+
+inputMoneyBack.addEventListener('input', function () {
+    const total = document.querySelector('.total').innerText.slice(3) * 1000;
+    const payChange = this.value - total;
+
+    moneyBack.innerText = `Rp ${payChange.toLocaleString('id-ID')}`;
+});
+
+reset.addEventListener('click', function () {
+    description.classList.add('fade');
+
+    inputMoneyBack.value = '';
+    moneyBack.innerText = '';
 });

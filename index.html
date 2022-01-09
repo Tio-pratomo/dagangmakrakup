@@ -22,42 +22,39 @@
 
     <body>
         <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-8 mx-auto">
+            <div class="row mt-3">
+                <div class="col-md-12 mx-auto">
                     <h1 class="h2 main-title">Perhitungan Harga Dagangan Mak Iyo</h1>
                     <form action="" class="mt-5 formulir">
-                        <div class="form-group row">
-                            <label for="lontong" class="col-sm-5 col-form-label text-left">Lontong :</label>
-                            <div class="col-sm-6">
-                                <input type="number" name="lontong" id="lontong" class="form-control" />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="risol" class="col-sm-5 col-form-label text-left">Risol :</label>
-                            <div class="col-sm-6">
-                                <input type="number" name="risol" id="risol" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="gorengan" class="col-sm-5 col-form-label text-left">
-                                Gorengan (tahu/bakwan/tempe) :
-                            </label>
-                            <div class="col-sm-6">
-                                <input type="number" name="gorengan" id="gorengan" class="form-control" />
-                            </div>
-                        </div>
                         <div class="row">
-                            <div class="col-md-5">
-                                <button id="count" class="btn btn-block btn-info text-white mb-2" type="submit">
-                                    Hitung
-                                </button>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="lontong" class="form-label text-left">Lontong :</label>
+                                    <input type="number" name="lontong" id="lontong" class="form-control" />
+                                </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <button id="reset" type="reset" class="btn btn-block btn-danger text-alert">
-                                    Reset
-                                </button>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="risol" class="form-label text-left">Risol :</label>
+                                    <input type="number" name="risol" id="risol" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="gorengan" class="form-label text-left">
+                                        Gorengan (tahu/bakwan/tempe) :
+                                    </label>
+                                    <input type="number" name="gorengan" id="gorengan" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-3 px-3">
+                                <button id="count" class="btn btn-warning text-white mr-4" type="submit">Hitung</button>
+                                <button id="reset" type="reset" class="btn btn-danger text-alert">Reset</button>
                             </div>
                         </div>
                     </form>
@@ -65,40 +62,43 @@
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-8">
-                    <h2 class="title-price mt-5">Rincian Harga</h2>
+                <div class="col-12 p-3">
+                    <h2 class="title-price mt-3">Rincian Harga</h2>
 
-                    <table class="table table-striped fade description">
-                        <tr>
-                            <td>Lontong</td>
-                            <td class="calculation-lontong"></td>
-                            <td class="total-item-lontong"></td>
-                        </tr>
-                        <tr>
-                            <td>Risol</td>
-                            <td class="calculation-risol"></td>
-                            <td class="total-item-risol"></td>
-                        </tr>
-                        <tr>
-                            <td>Gorengan</td>
-                            <td class="calculation-gorengan"></td>
-                            <td class="total-item-gorengan"></td>
-                        </tr>
-                        <tr class="font-weight-bold">
-                            <td colspan="2">Total</td>
-                            <td class="total"></td>
-                        </tr>
-                        <tr class="font-weight-bold">
-                            <td colspan="2">Uang Pelanggan</td>
-                            <td>
-                                <input type="number" name="customer" />
-                            </td>
-                        </tr>
-                        <tr class="font-weight-bold">
-                            <td colspan="2" class="text-danger">Kembalian</td>
-                            <td class="money-back" class="text-danger"></td>
-                        </tr>
-                    </table>
+                    <div class="fade description">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Lontong :
+                                <span class="calculation-lontong"></span>
+                                =
+                                <span class="total-item-lontong"></span>
+                            </li>
+                            <li class="list-group-item">
+                                Risol :
+                                <span class="calculation-risol"></span>
+                                =
+                                <span class="total-item-risol"></span>
+                            </li>
+                            <li class="list-group-item">
+                                Gorengan :
+                                <span class="calculation-gorengan"></span>
+                                =
+                                <span class="total-item-gorengan"></span>
+                            </li>
+                            <li class="list-group-item list-group-item-secondary font-weight-bold">
+                                Total =
+                                <span class="total"></span>
+                            </li>
+                            <li class="list-group-item">
+                                <label for="customer">Uang Pelanggan</label>
+                                <input type="number" name="customer" class="form-control" />
+                            </li>
+                            <li class="list-group-item list-group-item-secondary font-weight-bold">
+                                Kembalian =
+                                <span class="money-back"></span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

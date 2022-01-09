@@ -23,30 +23,17 @@ form.addEventListener('click', function (event) {
             totalPrice: description.querySelector('.total'),
         };
 
-        if (
-            inputUser.lontong.value < '0' &&
-            inputUser.risol.value < '0' &&
-            inputUser.gorengan.value < '0'
-        ) {
+        if (inputUser.lontong.value < '0' && inputUser.risol.value < '0' && inputUser.gorengan.value < '0') {
             inputUser.lontong.value = 0;
             inputUser.risol.value = 0;
             inputUser.gorengan.value = 0;
-        } else if (
-            inputUser.lontong.value < '0' &&
-            inputUser.risol.value < '0'
-        ) {
+        } else if (inputUser.lontong.value < '0' && inputUser.risol.value < '0') {
             inputUser.lontong.value = 0;
             inputUser.risol.value = 0;
-        } else if (
-            inputUser.lontong.value < '0' &&
-            inputUser.gorengan.value < '0'
-        ) {
+        } else if (inputUser.lontong.value < '0' && inputUser.gorengan.value < '0') {
             inputUser.lontong.value = 0;
             inputUser.gorengan.value = 0;
-        } else if (
-            inputUser.risol.value < '0' &&
-            inputUser.gorengan.value < '0'
-        ) {
+        } else if (inputUser.risol.value < '0' && inputUser.gorengan.value < '0') {
             inputUser.risol.value = 0;
             inputUser.gorengan.value = 0;
         } else if (inputUser.lontong.value < '0') {
@@ -57,31 +44,22 @@ form.addEventListener('click', function (event) {
             inputUser.gorengan.value = 0;
         }
 
-        pricingDetails.lontongDetail.innerHTML =
-            inputUser.lontong.value + ' x Rp 1.500';
-        pricingDetails.lontongTotal.innerHTML = (
-            inputUser.lontong.value * 1500
-        ).toLocaleString('id-ID', {
+        pricingDetails.lontongDetail.innerHTML = inputUser.lontong.value + ' x Rp 1.500';
+        pricingDetails.lontongTotal.innerHTML = (inputUser.lontong.value * 1500).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
         });
 
-        pricingDetails.risolDetail.innerHTML =
-            inputUser.risol.value + ' x Rp 2.000';
-        pricingDetails.risolTotal.innerHTML = (
-            inputUser.risol.value * 2000
-        ).toLocaleString('id-ID', {
+        pricingDetails.risolDetail.innerHTML = inputUser.risol.value + ' x Rp 2.000';
+        pricingDetails.risolTotal.innerHTML = (inputUser.risol.value * 2000).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
         });
 
-        pricingDetails.gorenganDetail.innerHTML =
-            inputUser.gorengan.value + ' x Rp 1.000';
-        pricingDetails.gorenganTotal.innerHTML = (
-            inputUser.gorengan.value * 1000
-        ).toLocaleString('id-ID', {
+        pricingDetails.gorenganDetail.innerHTML = inputUser.gorengan.value + ' x Rp 1.000';
+        pricingDetails.gorenganTotal.innerHTML = (inputUser.gorengan.value * 1000).toLocaleString('id-ID', {
             style: 'currency',
             currency: 'IDR',
             maximumFractionDigits: 0,
@@ -101,4 +79,28 @@ form.addEventListener('click', function (event) {
     if (event.target.id === 'reset') {
         description.classList.add('fade');
     }
+});
+
+const moneyBack = document.querySelector('.money-back');
+const inputMoneyBack = document.querySelector('input[name="customer"]');
+
+inputMoneyBack.addEventListener('input', function () {
+    const inputUser = {
+        lontong: form.children[0].children[1].children[0],
+        risol: form.children[1].children[1].children[0],
+        gorengan: form.children[2].children[1].children[0],
+    };
+
+    const totalPrice =
+        parseInt(inputUser.lontong.value * 1500) +
+        parseInt(inputUser.risol.value * 2000) +
+        parseInt(inputUser.gorengan.value * 1000);
+
+    const customerMoney = (inputMoneyBack.value - totalPrice).toLocaleString('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        maximumFractionDigits: 0,
+    });
+
+    moneyBack.innerText = customerMoney;
 });

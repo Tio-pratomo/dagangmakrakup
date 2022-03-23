@@ -46,7 +46,11 @@ const sanitizeInputUser = () => {
     const inputItems = form.querySelectorAll('input');
 
     inputItems.forEach((input) => {
-        input.value === '' ? (input.value = 0) : null;
+        if (input.value === '') {
+            input.value = 0;
+        } else if (input.value < 0) {
+            input.value *= -1;
+        }
     });
 };
 

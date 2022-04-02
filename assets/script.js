@@ -14,25 +14,36 @@ const displayItems = (name) => {
     let resultPrice = 0;
 
     if (name === 'lontong') {
-        resultPrice = 1500;
-
-        calculateItem.innerText = `${inputItem.value} x 1.500`;
-        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
-    } else if (name === 'risol') {
         resultPrice = 2000;
 
-        calculateItem.innerText = `${inputItem.value} x 2.000`;
+        calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
+        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
+    } else if (name === 'risol-sayur') {
+        resultPrice = 2000;
+
+        calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
         totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     } else if (name === 'gorengan') {
         resultPrice = 1000;
 
-        calculateItem.innerText = `${inputItem.value} x 1.000`;
+        calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
+        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
+    } else if (name === 'risol-mayo') {
+        resultPrice = 2500;
+
+        calculateItem.innerText = `${inputItem.value} x${resultPrice.toString()}`;
+        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
+    } else if (name === 'pastel') {
+        resultPrice = 2000;
+
+        calculateItem.innerText = `${inputItem.value} x${resultPrice.toString()}`;
         totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     }
 };
 
 const displayTotalPay = (elTotal, ...elements) => {
     const total = elements.map((element) => element.innerText.slice(3) * 1000).reduce((acc, currVal) => acc + currVal);
+
     const result = total.toLocaleString('id-ID', {
         currency: 'IDR',
         style: 'currency',
@@ -62,13 +73,17 @@ form.addEventListener('submit', function (e) {
     sanitizeInputUser();
 
     displayItems('lontong');
-    displayItems('risol');
+    displayItems('risol-mayo');
+    displayItems('risol-sayur');
+    displayItems('pastel');
     displayItems('gorengan');
 
     displayTotalPay(
         document.querySelector('.total'),
         document.querySelector('.total-item-lontong'),
-        document.querySelector('.total-item-risol'),
+        document.querySelector('.total-item-risol-mayo'),
+        document.querySelector('.total-item-risol-sayur'),
+        document.querySelector('.total-item-pastel'),
         document.querySelector('.total-item-gorengan')
     );
 });

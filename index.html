@@ -27,21 +27,29 @@
                     <h1 class="h2 main-title">Perhitungan Harga Dagangan Mak Iyo</h1>
                     <form action="" class="mt-5 formulir">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="lontong" class="form-label text-left">Lontong :</label>
                                     <input type="number" name="lontong" id="lontong" class="form-control" />
                                 </div>
-                            </div>
 
-                            <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label for="risol" class="form-label text-left">Risol :</label>
-                                    <input type="number" name="risol" id="risol" class="form-control" />
+                                    <label for="risol-mayo" class="form-label text-left">Risol Mayo :</label>
+                                    <input type="number" name="risol-mayo" id="risol-mayo" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="risol-sayur" class="form-label text-left">Risol Sayur :</label>
+                                    <input type="number" name="risol-sayur" id="risol-sayur" class="form-control" />
                                 </div>
                             </div>
 
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="pastel" class="form-label text-left">Pastel :</label>
+                                    <input type="number" name="pastel" id="pastel" class="form-control" />
+                                </div>
+
                                 <div class="form-group">
                                     <label for="gorengan" class="form-label text-left">
                                         Gorengan (tahu/bakwan/tempe) :
@@ -73,12 +81,28 @@
                                 =
                                 <span class="total-item-lontong"></span>
                             </li>
+
                             <li class="list-group-item">
-                                Risol :
-                                <span class="calculation-risol"></span>
+                                Risol Mayo :
+                                <span class="calculation-risol-mayo"></span>
                                 =
-                                <span class="total-item-risol"></span>
+                                <span class="total-item-risol-mayo"></span>
                             </li>
+
+                            <li class="list-group-item">
+                                Risol Sayur :
+                                <span class="calculation-risol-sayur"></span>
+                                =
+                                <span class="total-item-risol-sayur"></span>
+                            </li>
+
+                            <li class="list-group-item">
+                                Pastel :
+                                <span class="calculation-pastel"></span>
+                                =
+                                <span class="total-item-pastel"></span>
+                            </li>
+
                             <li class="list-group-item">
                                 Gorengan :
                                 <span class="calculation-gorengan"></span>
@@ -89,10 +113,12 @@
                                 Total =
                                 <span class="total"></span>
                             </li>
+
                             <li class="list-group-item">
                                 <label for="customer">Uang Pelanggan</label>
                                 <input type="number" name="customer" class="form-control" />
                             </li>
+
                             <li class="list-group-item list-group-item-secondary font-weight-bold">
                                 Kembalian =
                                 <span class="money-back"></span>

@@ -25,5 +25,15 @@ table {
 }
 
 .fade {
-    opacity: 0;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        display: none;
+    }
+
+    to {
+        display: block;
+    }
 }

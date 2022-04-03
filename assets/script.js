@@ -15,30 +15,16 @@ const displayItems = (name) => {
 
     if (name === 'lontong') {
         resultPrice = 2000;
-
-        calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
-        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     } else if (name === 'risol-sayur') {
         resultPrice = 2000;
-
-        calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
-        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
-    } else if (name === 'gorengan') {
-        resultPrice = 1000;
-
-        calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
-        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     } else if (name === 'risol-mayo') {
         resultPrice = 2500;
-
-        calculateItem.innerText = `${inputItem.value} x${resultPrice.toString()}`;
-        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     } else if (name === 'pastel') {
         resultPrice = 2000;
-
-        calculateItem.innerText = `${inputItem.value} x${resultPrice.toString()}`;
-        totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
     }
+
+    calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
+    totalPriceItem.innerText = `Rp ${(inputItem.value * resultPrice).toLocaleString('id-ID')}`;
 };
 
 const displayTotalPay = (elTotal, ...elements) => {
@@ -76,15 +62,13 @@ form.addEventListener('submit', function (e) {
     displayItems('risol-mayo');
     displayItems('risol-sayur');
     displayItems('pastel');
-    displayItems('gorengan');
 
     displayTotalPay(
         document.querySelector('.total'),
         document.querySelector('.total-item-lontong'),
         document.querySelector('.total-item-risol-mayo'),
         document.querySelector('.total-item-risol-sayur'),
-        document.querySelector('.total-item-pastel'),
-        document.querySelector('.total-item-gorengan')
+        document.querySelector('.total-item-pastel')
     );
 });
 

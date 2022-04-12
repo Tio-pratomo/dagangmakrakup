@@ -19,8 +19,8 @@ const displayItems = (name) => {
         resultPrice = 2000;
     } else if (name === 'risol-mayo') {
         resultPrice = 2500;
-    } else if (name === 'cireng-isi') {
-        resultPrice = 1500;
+    } else if (name === 'pastel') {
+        resultPrice = 2000;
     }
 
     calculateItem.innerText = `${inputItem.value} x ${resultPrice.toString()}`;
@@ -61,14 +61,14 @@ form.addEventListener('submit', function (e) {
     displayItems('lontong');
     displayItems('risol-mayo');
     displayItems('risol-sayur');
-    displayItems('cireng-isi');
+    displayItems('pastel');
 
     displayTotalPay(
         document.querySelector('.total'),
         document.querySelector('.total-item-lontong'),
         document.querySelector('.total-item-risol-mayo'),
         document.querySelector('.total-item-risol-sayur'),
-        document.querySelector('.total-item-cireng-isi')
+        document.querySelector('.total-item-pastel')
     );
 });
 

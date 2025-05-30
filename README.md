@@ -5,8 +5,6 @@
 
 Aplikasi kasir sederhana untuk menghitung transaksi dagang, dibuat dengan Alpine.js, Tailwind CSS, dan DaisyUI. Aplikasi ini memungkinkan Anda mengelola barang dagangan dan menghitung transaksi dengan fitur otomatis penghitungan total dan kembalian.
 
-![Screenshot Aplikasi](screenshot.png)
-
 ## Fitur Utama
 
 ✅ **Manajemen Barang Dagangan**

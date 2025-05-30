@@ -1,121 +1,112 @@
-<!DOCTYPE html>
-<html lang="id" translate="no">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dagangan Puasa</title>
-        <!-- google font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
-        <!-- bootstrap 4.6 -->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-            crossorigin="anonymous"
-        />
-        <!-- link css -->
-        <link rel="stylesheet" href="assets/style.css" />
-    </head>
+<!doctype html>
+<html lang="en">
 
-    <body>
-        <div class="container">
-            <div class="row mt-3">
-                <div class="col-md-12 mx-auto">
-                    <h1 class="h2 main-title">Perhitungan Harga Dagangan Mak Iyo</h1>
-                    <form action="" class="mt-5 formulir">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="lontong" class="form-label text-left">Lontong :</label>
-                                    <input type="number" name="lontong" id="lontong" class="form-control" />
-                                </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dagang Mak Rakup</title>
+</head>
 
-                                <div class="form-group">
-                                    <label for="risol-mayo" class="form-label text-left">Risol Mayo :</label>
-                                    <input type="number" name="risol-mayo" id="risol-mayo" class="form-control" />
-                                </div>
-                            </div>
+<body class="bg-gray-100 min-h-screen flex capitalize" x-data="$store.merch"
+  x-init="$store.merch.haveItemsLocalStorage()">
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="risol-sayur" class="form-label text-left">Risol Sayur :</label>
-                                    <input type="number" name="risol-sayur" id="risol-sayur" class="form-control" />
-                                </div>
+  <div class="max-w-5xl flex-3/4 m-auto p-4 rounded bg-white shadow" x-data="{modalOpen: false}">
 
-                                <div class="form-group">
-                                    <label for="pastel" class="form-label text-left">Pastel :</label>
-                                    <input type="number" name="pastel" id="pastel" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+    <h1 class="mt-2 mb-5 font-semibold text-xl">Input Barang Dagangan</h1>
 
-                        <div class="row mt-3">
-                            <div class="col-lg-3 px-3">
-                                <button id="count" class="btn btn-warning text-white mr-4" type="submit">Hitung</button>
-                                <button id="reset" type="reset" class="btn btn-danger text-alert">Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="space-y-4 overflow-auto max-h-[60vh]">
+      <template x-for="(item, index ) in goods" :key="index">
 
-            <div class="row mb-3 justify-content-center">
-                <div class="col-12 p-3">
-                    <h2 class="title-price mt-3">Rincian Harga</h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center border sm:border-0 p-2.5 rounded border-gray-300/90">
+          <fieldset class="fieldset">
+            <input type="text" placeholder="Nama Barang" class="input input-bordered w-full" x-model="item.name"
+              @keyup.enter="addItem()">
+            <p class="label">Cth: Risol, Pastel</p>
+          </fieldset>
 
-                    <div class="fade description">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                Lontong :
-                                <span class="calculation-lontong"></span>
-                                =
-                                <span class="total-item-lontong"></span>
-                            </li>
-
-                            <li class="list-group-item">
-                                Risol Mayo :
-                                <span class="calculation-risol-mayo"></span>
-                                =
-                                <span class="total-item-risol-mayo"></span>
-                            </li>
-
-                            <li class="list-group-item">
-                                Risol Sayur :
-                                <span class="calculation-risol-sayur"></span>
-                                =
-                                <span class="total-item-risol-sayur"></span>
-                            </li>
-
-                            <li class="list-group-item">
-                                Pastel :
-                                <span class="calculation-pastel"></span>
-                                =
-                                <span class="total-item-pastel"></span>
-                            </li>
-
-                            <li class="list-group-item list-group-item-secondary font-weight-bold">
-                                Total =
-                                <span class="total"></span>
-                            </li>
-
-                            <li class="list-group-item">
-                                <label for="customer">Uang Pelanggan</label>
-                                <input type="number" name="customer" class="form-control" />
-                            </li>
-
-                            <li class="list-group-item list-group-item-secondary font-weight-bold">
-                                Kembalian =
-                                <span class="money-back"></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          <fieldset class="fieldset">
+            <input type="text" placeholder="Harga per buah" class="input input-bordered w-full" x-model="item.price"
+              @input="item.price = item.price.replace(/[^\d]/g, '')" @keyup.enter="addItem()">
+            <p class="label">Cth: 2000, 3000</p>
+          </fieldset>
         </div>
 
-        <script src="./assets/script.js"></script>
-    </body>
+
+      </template>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-4 justify-between sm:justify-start">
+      <button @click="addItem()" class="btn btn-primary gap-2 hover:shadow-md transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+            clip-rule="evenodd" />
+        </svg>
+        Tambah Barang
+      </button>
+
+      <button @click="deleteItem()" class="btn btn-error gap-2 hover:shadow-md transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+            clip-rule="evenodd" />
+        </svg>
+        Hapus Barang
+      </button>
+
+      <button @click="
+        localStorage.clear();
+        goods = [{ name: '', price: '' }];
+      " class="btn btn-secondary gap-2 hover:shadow-md transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-package-x-icon lucide-package-x">
+          <path
+            d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
+          <path d="m7.5 4.27 9 5.15" />
+          <polyline points="3.29 7 12 12 20.71 7" />
+          <line x1="12" x2="12" y1="22" y2="12" />
+          <path d="m17 13 5 5m-5 0 5-5" />
+        </svg>
+        Hapus Semua Data
+      </button>
+
+      <button @click="modalOpen = true" class="btn btn-success gap-2 hover:shadow-lg transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clip-rule="evenodd" />
+        </svg>
+        Olah Data Ini
+      </button>
+    </div>
+
+    <div x-show="modalOpen" x-cloak class="modal modal-open">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Konfirmasi</h3>
+        <p class="py-4">
+          Apakah anda yakin ingin melanjutkan?
+        </p>
+
+        <div class="modal-action">
+          <button @click="
+                generate();
+                modalOpen = false;
+
+              " class="btn btn-primary">
+            Ya
+          </button>
+          <button @click="modalOpen = false" class="btn btn-error">Tidak</button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

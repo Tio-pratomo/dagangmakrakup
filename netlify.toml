@@ -1,0 +1,7 @@
+[build]
+  command = "pnpm run build"
+  publish = "dist"  # Sesuaikan dengan folder build Anda
+
+[build.environment]
+  NODE_VERSION = "20.14.0"  # Gunakan versi LTS terbaru
+  PNPM_VERSION = "8.15.7"   # Versi PNPM yang kompatibel dengan Node 16
